@@ -1,0 +1,15 @@
+{
+    "name": "tristan/htmlbuilder",
+    "autoload": {
+        "psr-4": {
+            "HtmlBuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TristanHeckelsmueller",
+            "email": "tristan@heckelsmueller.net"
+        }
+    ],
+    "require": {}
+}

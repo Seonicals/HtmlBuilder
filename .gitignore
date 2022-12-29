@@ -1,0 +1,7 @@
+vendor
+composer.lock
+deployment.xml
+modules.xml
+php.xml
+vcs.xml
+htmlbuilder.iml
