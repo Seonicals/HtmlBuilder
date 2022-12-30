@@ -1,18 +1,33 @@
 <?php
 
+use Builder;
+
 class FormBuilder
 {
+    protected \Builder $builder;
+
+    /**
+     *
+     */
+    public function __construct ()
+    {
+        $this->builder = new \Builder();
+    }
+
     /**
      * Function formStart
      *
-     * @param $class
-     * @param $id
-     * @param $action
+     * @param string $class
+     * @param string $id
+     * @param string $action
+     * @param array $attributes
      * @return string
      */
-    public function formStart ($class = "", $id = "", $action = "") : string
+    public function formStart (string $class = "", string $id = "", string $action = "", array $attributes = []) : string
     {
-        return "<form class='$class' id='$id' action='$action'>";
+        $showAttributes = $this->builder->buildAttributes($attributes);
+
+        return "<form class='$class' id='$id' action='$action' $showAttributes>";
     }
 
     /**
@@ -32,11 +47,14 @@ class FormBuilder
      * @param string $class
      * @param string $id
      * @param string $for
+     * @param array $attributes
      * @return string
      */
-    public function labelStart (string $class = "", string $id = "", string $for = "") : string
+    public function labelStart (string $class = "", string $id = "", string $for = "", array $attributes = []) : string
     {
-        return "<label class='$class' id='$id' for='$for'>";
+        $showAttributes = $this->builder->buildAttributes($attributes);
+
+        return "<label class='$class' id='$id' for='$for' $showAttributes>";
     }
 
     /**
@@ -58,9 +76,10 @@ class FormBuilder
      * @param string $for
      * @return string
      */
-    public function label(string $innerHTML = "", string $class = "", string $id = "", string $for = "") : string
+    public function label(string $innerHTML = "", string $class = "", string $id = "", string $for = "", array $attributes = []) : string
     {
-        return $this->labelStart($class, $id, $for) . $innerHTML . $this->labelEnd();
+
+        return $this->labelStart($class, $id, $for, $attributes) . $innerHTML . $this->labelEnd();
     }
 
     /**
@@ -71,9 +90,11 @@ class FormBuilder
      * @param string $name
      * @return string
      */
-    public function selectStart (string $class = "", string $id = "", string $name = "") : string
+    public function selectStart (string $class = "", string $id = "", string $name = "", array $attributes = []) : string
     {
-        return "<select class='$class' id='$id' name='$name'>";
+        $showAttributes = $this->builder->buildAttributes($attributes);
+
+        return "<select class='$class' id='$id' name='$name' $showAttributes>";
     }
 
     /**
@@ -96,13 +117,9 @@ class FormBuilder
      */
     public function option (string $innerHTML = "", string $value = "", array $attributes = []) : string
     {
-        $html = "";
-        foreach ($attributes as $attribute) {
-            $name = $attribute["name"];
-            $attributeValue = $attribute["value"];
-            $html = $html . " " . "data-$name='$attributeValue'";
-        }
-        return "<option value='$value' $html>$innerHTML</option>";
+        $showAttributes = $this->builder->buildAttributes($attributes);
+
+        return "<option value='$value' $showAttributes>$innerHTML</option>";
     }
 
 }
