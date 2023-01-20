@@ -1,6 +1,5 @@
 <?php
 
-use Builder;
 
 class HtmlBuilder {
 
@@ -35,11 +34,26 @@ class HtmlBuilder {
     }
 
     /**
+     * Function div
+     *
+     * @param string $innerHTML
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function div (string $innerHTML = "", string $class = "", string $id = "", array $attributes = []) : string
+    {
+        return $this->divStart($class, $id, $attributes) . $innerHTML . $this->divEnd();
+    }
+
+    /**
      * Function p
      *
      * @param string $innerHTML
      * @param string $class
      * @param string $id
+     * @param array $attributes
      * @return string
      */
     public function p (string $innerHTML = "", string $class = "", string $id = "", array $attributes = []) : string
@@ -53,6 +67,7 @@ class HtmlBuilder {
      *
      * @param string $class
      * @param string $id
+     * @param array $attributes
      * @return string
      */
     public function pStart (string $class = "", string $id = "", array $attributes = []) : string
@@ -92,8 +107,6 @@ class HtmlBuilder {
     {
         return "</section>";
     }
-
-
 
     /**
      * Function articleStart
@@ -281,6 +294,81 @@ class HtmlBuilder {
     public function headerEnd () : string
     {
         return $this->builder->buildEndTag("header");
+    }
+
+    /**
+     * Function spanStart
+     *
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function spanStart(string $class = "", string $id = "", array $attributes = []) : string
+    {
+        return $this->builder->buildStartTag("span", $class, $id, $attributes);
+    }
+
+    /**
+     * Function spanEnd
+     *
+     * @return string
+     */
+    public function spanEnd () : string
+    {
+        return $this->builder->buildEndTag("span");
+    }
+
+    /**
+     * Function buttonStart
+     *
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function buttonStart(string $class = "", string $id = "", array $attributes = []) : string
+    {
+
+        return $this->builder->buildStartTag("button", $class, $id, $attributes);
+    }
+
+    /**
+     * Function buttonEnd
+     *
+     * @return string
+     */
+    public function buttonEnd () : string
+    {
+        return $this->builder->buildEndTag("button");
+    }
+
+    /**
+     * Function button
+     *
+     * @param string $innerHTML
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function button (string $innerHTML, string $class = "", string $id = "", array $attributes = []) : string
+    {
+        return $this->buttonStart($class, $id, $attributes) . $innerHTML . $this->buttonEnd();
+    }
+
+
+    public function img (string $class = "", string $id = "", string $src = "",  string $alt = "", array $attributes = [])  : string
+    {
+
+        $showAttributes = $this->builder->buildAttributes($attributes);
+
+        if ($class != "") $class = "class='$class'";
+        if ($id != "") $id = "id='$id'";
+        if ($src != "") $src = "src='$src'";
+        if ($alt != "") $alt = "alt='$alt'";
+
+        return "<img $class $id $src $alt $showAttributes>";
     }
 
 }

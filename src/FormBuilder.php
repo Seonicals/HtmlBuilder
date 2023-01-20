@@ -1,6 +1,5 @@
 <?php
 
-use Builder;
 
 class FormBuilder
 {
@@ -74,6 +73,7 @@ class FormBuilder
      * @param string $class
      * @param string $id
      * @param string $for
+     * @param array $attributes
      * @return string
      */
     public function label(string $innerHTML = "", string $class = "", string $id = "", string $for = "", array $attributes = []) : string
@@ -88,6 +88,7 @@ class FormBuilder
      * @param string $class
      * @param string $id
      * @param string $name
+     * @param array $attributes
      * @return string
      */
     public function selectStart (string $class = "", string $id = "", string $name = "", array $attributes = []) : string
@@ -120,6 +121,26 @@ class FormBuilder
         $showAttributes = $this->builder->buildAttributes($attributes);
 
         return "<option value='$value' $showAttributes>$innerHTML</option>";
+    }
+
+    /**
+     * Function input
+     *
+     * @param string $type
+     * @param string $class
+     * @param string $id
+     * @param string $name
+     * @param string $placeholder
+     * @param string $value
+     * @param string $autocomplete
+     * @param array $attributes
+     * @return string
+     */
+    public function input (string $type = "text", string $class = "", string $id = "", string $name = "", string $placeholder = "", string $value = "", string $autocomplete = "off", array $attributes = []) : string
+    {
+        $showAttributes = $this->builder->buildAttributes($attributes);
+
+        return "<input type='$type' value='$value' class='$class' id='$id' name='$name' placeholder='$placeholder' autocomplete='$autocomplete' $showAttributes />";
     }
 
 }

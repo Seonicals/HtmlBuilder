@@ -15,7 +15,7 @@ class Builder
      */
     public function buildStartTag ($tag, $class, $id, $attributes) : string
     {
-        $showAttributes = $this->builder->buildAttributes($attributes);
+        $showAttributes = $this->buildAttributes($attributes);
         return "<$tag class='$class' id='$id' $showAttributes>";
     }
 
