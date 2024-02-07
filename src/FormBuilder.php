@@ -1,17 +1,15 @@
 <?php
 
-
-class FormBuilder
+/**
+ * Class FormBuilder
+ *
+ * @author Tristan Heckelsmüller <t.heckelsmueller@seonicals.de>
+ * @copyright Copyright (c) 2024, Seonicals GmbH
+ */
+class FormBuilder extends Builder
 {
     protected \Builder $builder;
 
-    /**
-     *
-     */
-    public function __construct ()
-    {
-        $this->builder = new \Builder();
-    }
 
     /**
      * Function formStart

@@ -1,14 +1,15 @@
 <?php
 
+/**
+ * Class HtmlBuilder
+ *
+ * @author Tristan Heckelsmüller <t.heckelsmueller@seonicals.de>
+ * @copyright Copyright (c) 2024, Seonicals GmbH
+ */
+class HtmlBuilder extends Builder
+{
 
-class HtmlBuilder {
-
-    protected \Builder $builder;
-
-    public function __construct ()
-    {
-        $this->builder = new \Builder();
-    }
+    protected Builder $builder;
 
     /**
      * Function divStart
@@ -45,6 +46,47 @@ class HtmlBuilder {
     public function div (string $innerHTML = "", string $class = "", string $id = "", array $attributes = []) : string
     {
         return $this->divStart($class, $id, $attributes) . $innerHTML . $this->divEnd();
+    }
+
+    /**
+     * Function h1
+     *
+     * @param string $innerHTML
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function h1 (string $innerHTML = "", string $class = "", string $id = "", array $attributes = []) : string
+    {
+
+        return $this->h1Start($class, $id, $attributes) . $innerHTML . $this->h1End();
+    }
+
+    /**
+     * Function h1Start
+     *
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function h1Start (string $class = "", string $id = "", array $attributes = []) : string
+    {
+        return $this->builder->buildStartTag("h1", $class, $id, $attributes);
+    }
+
+    /**
+     * Function h1End
+     *
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function h1End (string $class = "", string $id = "", array $attributes = []) : string
+    {
+        return "</h1>";
     }
 
     /**
@@ -366,9 +408,8 @@ class HtmlBuilder {
         if ($class != "") $class = "class='$class'";
         if ($id != "") $id = "id='$id'";
         if ($src != "") $src = "src='$src'";
-        if ($alt != "") $alt = "alt='$alt'";
 
-        return "<img $class $id $src $alt $showAttributes>";
+        return "<img alt='$alt' $class $id $src $alt $showAttributes>";
     }
 
 }

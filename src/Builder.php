@@ -1,7 +1,12 @@
 <?php
 
-
-class Builder
+/**
+ * Class Builder
+ *
+ * @author Tristan Heckelsmüller <t.heckelsmueller@seonicals.de>
+ * @copyright Copyright (c) 2024, Seonicals GmbH
+ */
+abstract class Builder
 {
 
     /**
