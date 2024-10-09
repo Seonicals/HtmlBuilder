@@ -1,20 +1,15 @@
 <?php
 
-
-class FormBuilder
+/**
+ * Class FormBuilder
+ *
+ * @author Tristan Heckelsmüller <t.heckelsmueller@seonicals.de>
+ * @copyright Copyright (c) 2024, Seonicals GmbH
+ */
+class FormBuilder extends Builder
 {
-<<<<<<< Updated upstream
     protected \Builder $builder;
 
-    /**
-     *
-     */
-    public function __construct ()
-    {
-        $this->builder = new \Builder();
-    }
-=======
->>>>>>> Stashed changes
 
     /**
      * Function formStart
@@ -27,7 +22,7 @@ class FormBuilder
      */
     public function formStart (string $class = "", string $id = "", string $action = "", array $attributes = []) : string
     {
-        $showAttributes = $this->buildAttributes($attributes);
+        $showAttributes = $this->builder->buildAttributes($attributes);
 
         return "<form class='$class' id='$id' action='$action' $showAttributes>";
     }
@@ -54,7 +49,7 @@ class FormBuilder
      */
     public function labelStart (string $class = "", string $id = "", string $for = "", array $attributes = []) : string
     {
-        $showAttributes = $this->buildAttributes($attributes);
+        $showAttributes = $this->builder->buildAttributes($attributes);
 
         return "<label class='$class' id='$id' for='$for' $showAttributes>";
     }
@@ -96,7 +91,7 @@ class FormBuilder
      */
     public function selectStart (string $class = "", string $id = "", string $name = "", array $attributes = []) : string
     {
-        $showAttributes = $this->buildAttributes($attributes);
+        $showAttributes = $this->builder->buildAttributes($attributes);
 
         return "<select class='$class' id='$id' name='$name' $showAttributes>";
     }
@@ -121,7 +116,7 @@ class FormBuilder
      */
     public function option (string $innerHTML = "", string $value = "", array $attributes = []) : string
     {
-        $showAttributes = $this->buildAttributes($attributes);
+        $showAttributes = $this->builder->buildAttributes($attributes);
 
         return "<option value='$value' $showAttributes>$innerHTML</option>";
     }
@@ -141,7 +136,7 @@ class FormBuilder
      */
     public function input (string $type = "text", string $class = "", string $id = "", string $name = "", string $placeholder = "", string $value = "", string $autocomplete = "off", array $attributes = []) : string
     {
-        $showAttributes = $this->buildAttributes($attributes);
+        $showAttributes = $this->builder->buildAttributes($attributes);
 
         return "<input type='$type' value='$value' class='$class' id='$id' name='$name' placeholder='$placeholder' autocomplete='$autocomplete' $showAttributes />";
     }

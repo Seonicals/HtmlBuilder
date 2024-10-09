@@ -1,18 +1,16 @@
 <?php
 
+/**
+ * Class HtmlBuilder
+ *
+ * @author Tristan Heckelsmüller <t.heckelsmueller@seonicals.de>
+ * @copyright Copyright (c) 2024, Seonicals GmbH
+ */
+class HtmlBuilder extends Builder
+{
 
-<<<<<<< Updated upstream
-class HtmlBuilder {
+    protected Builder $builder;
 
-    protected \Builder $builder;
-
-    public function __construct ()
-    {
-        $this->builder = new \Builder();
-    }
-
-=======
->>>>>>> Stashed changes
     /**
      * Function divStart
      *
@@ -23,7 +21,7 @@ class HtmlBuilder {
      */
     public function divStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("div", $class, $id, $attributes);
+        return $this->builder->buildStartTag("div", $class, $id, $attributes);
     }
 
     /**
@@ -51,8 +49,6 @@ class HtmlBuilder {
     }
 
     /**
-<<<<<<< Updated upstream
-=======
      * Function h1
      *
      * @param string $innerHTML
@@ -77,7 +73,7 @@ class HtmlBuilder {
      */
     public function h1Start (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("h1", $class, $id, $attributes);
+        return $this->builder->buildStartTag("h1", $class, $id, $attributes);
     }
 
     /**
@@ -94,7 +90,6 @@ class HtmlBuilder {
     }
 
     /**
->>>>>>> Stashed changes
      * Function p
      *
      * @param string $innerHTML
@@ -119,7 +114,7 @@ class HtmlBuilder {
      */
     public function pStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("p", $class, $id, $attributes);
+        return $this->builder->buildStartTag("p", $class, $id, $attributes);
     }
 
     /**
@@ -142,7 +137,7 @@ class HtmlBuilder {
      */
     public function sectionStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("section", $class, $id, $attributes);
+        return $this->builder->buildStartTag("section", $class, $id, $attributes);
     }
 
     /**
@@ -165,7 +160,7 @@ class HtmlBuilder {
      */
     public function articleStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("article", $class, $id, $attributes);
+        return $this->builder->buildStartTag("article", $class, $id, $attributes);
     }
 
     /**
@@ -189,7 +184,7 @@ class HtmlBuilder {
      */
     public function ulStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("ul", $class, $id, $attributes);
+        return $this->builder->buildStartTag("ul", $class, $id, $attributes);
     }
 
     /**
@@ -212,7 +207,7 @@ class HtmlBuilder {
      */
     public function liStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("li", $class, $id, $attributes);
+        return $this->builder->buildStartTag("li", $class, $id, $attributes);
     }
 
     /**
@@ -222,7 +217,7 @@ class HtmlBuilder {
      */
     public function liEnd () : string
     {
-        return $this->buildEndTag("li");
+        return $this->builder->buildEndTag("li");
     }
 
     /**
@@ -235,7 +230,7 @@ class HtmlBuilder {
      */
     public function mainStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("main", $class, $id, $attributes);
+        return $this->builder->buildStartTag("main", $class, $id, $attributes);
     }
 
     /**
@@ -245,7 +240,7 @@ class HtmlBuilder {
      */
     public function mainEnd () : string
     {
-        return $this->buildEndTag("main");
+        return $this->builder->buildEndTag("main");
     }
 
     /**
@@ -258,7 +253,7 @@ class HtmlBuilder {
      */
     public function navStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("nav", $class, $id, $attributes);
+        return $this->builder->buildStartTag("nav", $class, $id, $attributes);
     }
 
     /**
@@ -268,7 +263,7 @@ class HtmlBuilder {
      */
     public function navEnd () : string
     {
-        return $this->buildEndTag("nav");
+        return $this->builder->buildEndTag("nav");
     }
 
 
@@ -282,7 +277,7 @@ class HtmlBuilder {
      */
     public function asideStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("aside", $class, $id, $attributes);
+        return $this->builder->buildStartTag("aside", $class, $id, $attributes);
     }
 
     /**
@@ -292,7 +287,7 @@ class HtmlBuilder {
      */
     public function asideEnd () : string
     {
-        return $this->buildEndTag("aside");
+        return $this->builder->buildEndTag("aside");
     }
 
 
@@ -306,7 +301,7 @@ class HtmlBuilder {
      */
     public function footerStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("footer", $class, $id, $attributes);
+        return $this->builder->buildStartTag("footer", $class, $id, $attributes);
     }
 
     /**
@@ -316,7 +311,7 @@ class HtmlBuilder {
      */
     public function footerEnd () : string
     {
-        return $this->buildEndTag("footer");
+        return $this->builder->buildEndTag("footer");
     }
 
 
@@ -330,7 +325,7 @@ class HtmlBuilder {
      */
     public function headerStart (string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("header", $class, $id, $attributes);
+        return $this->builder->buildStartTag("header", $class, $id, $attributes);
     }
 
     /**
@@ -340,7 +335,7 @@ class HtmlBuilder {
      */
     public function headerEnd () : string
     {
-        return $this->buildEndTag("header");
+        return $this->builder->buildEndTag("header");
     }
 
     /**
@@ -353,7 +348,7 @@ class HtmlBuilder {
      */
     public function spanStart(string $class = "", string $id = "", array $attributes = []) : string
     {
-        return $this->buildStartTag("span", $class, $id, $attributes);
+        return $this->builder->buildStartTag("span", $class, $id, $attributes);
     }
 
     /**
@@ -363,7 +358,7 @@ class HtmlBuilder {
      */
     public function spanEnd () : string
     {
-        return $this->buildEndTag("span");
+        return $this->builder->buildEndTag("span");
     }
 
     /**
@@ -377,7 +372,7 @@ class HtmlBuilder {
     public function buttonStart(string $class = "", string $id = "", array $attributes = []) : string
     {
 
-        return $this->buildStartTag("button", $class, $id, $attributes);
+        return $this->builder->buildStartTag("button", $class, $id, $attributes);
     }
 
     /**
@@ -387,7 +382,7 @@ class HtmlBuilder {
      */
     public function buttonEnd () : string
     {
-        return $this->buildEndTag("button");
+        return $this->builder->buildEndTag("button");
     }
 
     /**
@@ -408,14 +403,13 @@ class HtmlBuilder {
     public function img (string $class = "", string $id = "", string $src = "",  string $alt = "", array $attributes = [])  : string
     {
 
-        $showAttributes = $this->buildAttributes($attributes);
+        $showAttributes = $this->builder->buildAttributes($attributes);
 
         if ($class != "") $class = "class='$class'";
         if ($id != "") $id = "id='$id'";
         if ($src != "") $src = "src='$src'";
-        if ($alt != "") $alt = "alt='$alt'";
 
-        return "<img $class $id $src $alt $showAttributes>";
+        return "<img alt='$alt' $class $id $src $alt $showAttributes>";
     }
 
 }
