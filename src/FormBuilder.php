@@ -3,6 +3,7 @@
 
 class FormBuilder
 {
+<<<<<<< Updated upstream
     protected \Builder $builder;
 
     /**
@@ -12,6 +13,8 @@ class FormBuilder
     {
         $this->builder = new \Builder();
     }
+=======
+>>>>>>> Stashed changes
 
     /**
      * Function formStart
@@ -24,7 +27,7 @@ class FormBuilder
      */
     public function formStart (string $class = "", string $id = "", string $action = "", array $attributes = []) : string
     {
-        $showAttributes = $this->builder->buildAttributes($attributes);
+        $showAttributes = $this->buildAttributes($attributes);
 
         return "<form class='$class' id='$id' action='$action' $showAttributes>";
     }
@@ -51,7 +54,7 @@ class FormBuilder
      */
     public function labelStart (string $class = "", string $id = "", string $for = "", array $attributes = []) : string
     {
-        $showAttributes = $this->builder->buildAttributes($attributes);
+        $showAttributes = $this->buildAttributes($attributes);
 
         return "<label class='$class' id='$id' for='$for' $showAttributes>";
     }
@@ -93,7 +96,7 @@ class FormBuilder
      */
     public function selectStart (string $class = "", string $id = "", string $name = "", array $attributes = []) : string
     {
-        $showAttributes = $this->builder->buildAttributes($attributes);
+        $showAttributes = $this->buildAttributes($attributes);
 
         return "<select class='$class' id='$id' name='$name' $showAttributes>";
     }
@@ -118,7 +121,7 @@ class FormBuilder
      */
     public function option (string $innerHTML = "", string $value = "", array $attributes = []) : string
     {
-        $showAttributes = $this->builder->buildAttributes($attributes);
+        $showAttributes = $this->buildAttributes($attributes);
 
         return "<option value='$value' $showAttributes>$innerHTML</option>";
     }
@@ -138,7 +141,7 @@ class FormBuilder
      */
     public function input (string $type = "text", string $class = "", string $id = "", string $name = "", string $placeholder = "", string $value = "", string $autocomplete = "off", array $attributes = []) : string
     {
-        $showAttributes = $this->builder->buildAttributes($attributes);
+        $showAttributes = $this->buildAttributes($attributes);
 
         return "<input type='$type' value='$value' class='$class' id='$id' name='$name' placeholder='$placeholder' autocomplete='$autocomplete' $showAttributes />";
     }
