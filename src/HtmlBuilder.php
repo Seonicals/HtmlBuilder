@@ -400,6 +400,16 @@ class HtmlBuilder extends Builder
     }
 
 
+    /**
+     * Function img
+     *
+     * @param string $class
+     * @param string $id
+     * @param string $src
+     * @param string $alt
+     * @param array $attributes
+     * @return string
+     */
     public function img (string $class = "", string $id = "", string $src = "",  string $alt = "", array $attributes = [])  : string
     {
 
