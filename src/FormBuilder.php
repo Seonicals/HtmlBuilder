@@ -6,7 +6,7 @@
  * @author Tristan Heckelsmüller <t.heckelsmueller@seonicals.de>
  * @copyright Copyright (c) 2024, Seonicals GmbH
  */
-class FormBuilder extends Builder
+final class FormBuilder extends Builder
 {
     protected \Builder $builder;
 

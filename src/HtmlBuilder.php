@@ -400,6 +400,16 @@ class HtmlBuilder extends Builder
     }
 
 
+    /**
+     * Function img
+     *
+     * @param string $class
+     * @param string $id
+     * @param string $src
+     * @param string $alt
+     * @param array $attributes
+     * @return string
+     */
     public function img (string $class = "", string $id = "", string $src = "",  string $alt = "", array $attributes = [])  : string
     {
 
@@ -410,6 +420,24 @@ class HtmlBuilder extends Builder
         if ($src != "") $src = "src='$src'";
 
         return "<img alt='$alt' $class $id $src $alt $showAttributes>";
+    }
+
+    /**
+     * Function bodyStart
+     *
+     * @param string $class
+     * @param string $id
+     * @param array $attributes
+     * @return string
+     */
+    public function bodyStart (string $class = "", string $id = "", array $attributes = []) : string
+    {
+        return $this->buildStartTag("body", $class, $id, $attributes);
+    }
+
+    public function bodyEnd () : string
+    {
+        return $this->buildEndTag("body");
     }
 
 }
